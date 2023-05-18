@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Quote Machine</title>
-    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -23,13 +23,17 @@
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     />
   </head>
-  <body class="bg-dark">
+  <body>
     <div
       class="container vh-100 d-flex align-items-center justify-content-center"
     >
-      <div id="quote-box" class="border p-5 bg-white">
-        <div id="text"></div>
-        <div id="author" class="text-right"></div>
+      <div id="quote-box" class="border p-5 bg-white w-100 rounded">
+        <div
+          id="text"
+          class="h2"
+          style="opacity: 1; transition: opacity 0.5s ease"
+        ></div>
+        <div id="author" class="text-right mt-4 h6 font-weight-normal"></div>
         <div class="d-flex justify-content-between mt-4">
           <a
             href="https://www.twitter.com/intent/tweet"
