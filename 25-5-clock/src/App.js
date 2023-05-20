@@ -9,7 +9,6 @@ const App = () => {
   const [timer, setTimer] = useState(1500);
   const [breakTime, setBreakTime] = useState(5);
   const [sessionTime, setSessionTime] = useState(25);
-  // const [startStop, setStartStop] = useState(false);
   const [timerInterval, setTimerInterval] = useState(null);
 
   const handleReset = () => {
@@ -21,6 +20,10 @@ const App = () => {
 
     clearInterval(timerInterval);
     setTimerInterval(null);
+
+    // let beep = document.getElementById("beep");
+    // beep.pause();
+    // beep.currentTime = 0;
   };
 
   const increment = (timerType) => {
@@ -95,20 +98,25 @@ const App = () => {
   }, [sessionTime]);
 
   return (
-    <div className="container text-center">
-      <TimerSetting
-        breakTime={breakTime}
-        sessionTime={sessionTime}
-        increment={increment}
-        decrement={decrement}
-      />
-      <TimerDisplay
-        break={breakState}
-        reset={handleReset}
-        timerOn={timerOn}
-        timer={timer}
-        startStop={handleStartStop}
-      />
+    <div className="min-h-screen bg-cyan-700 flex flex-col justify-center items-center text-white">
+      <div className="py-32 px-56">
+        <p className="text-center text-6xl">25 + 5 Clock</p>
+        <div className="flex flex-col gap-5 mt-8">
+          <TimerSetting
+            breakTime={breakTime}
+            sessionTime={sessionTime}
+            increment={increment}
+            decrement={decrement}
+          />
+          <TimerDisplay
+            break={breakState}
+            reset={handleReset}
+            timerOn={timerOn}
+            timer={timer}
+            startStop={handleStartStop}
+          />
+        </div>
+      </div>
     </div>
   );
 };
