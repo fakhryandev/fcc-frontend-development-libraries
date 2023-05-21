@@ -1,5 +1,5 @@
-const Key = ({ keyData: { id, value, styling } }) => (
-  <button id={id} className={styling}>
+const Key = ({ keyData: { id, value, styling }, handleInput }) => (
+  <button id={id} className={styling} onClick={() => handleInput(value)}>
     {value}
   </button>
 );

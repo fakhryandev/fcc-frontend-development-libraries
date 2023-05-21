@@ -19,17 +19,17 @@ const keyboarData = [
   },
   {
     id: "seven",
-    value: "7",
+    value: 7,
     styling: "bg-gray-700 py-3 border border-black hover:border-gray-600",
   },
   {
     id: "eight",
-    value: "8",
+    value: 8,
     styling: "bg-gray-700 py-3 border border-black hover:border-gray-600",
   },
   {
     id: "nine",
-    value: "9",
+    value: 9,
     styling: "bg-gray-700 py-3 border border-black hover:border-gray-600",
   },
   {
@@ -39,17 +39,17 @@ const keyboarData = [
   },
   {
     id: "four",
-    value: "4",
+    value: 4,
     styling: "bg-gray-700 py-3 border border-black hover:border-gray-600",
   },
   {
     id: "five",
-    value: "5",
+    value: 5,
     styling: "bg-gray-700 py-3 border border-black hover:border-gray-600",
   },
   {
     id: "six",
-    value: "6",
+    value: 6,
     styling: "bg-gray-700 py-3 border border-black hover:border-gray-600",
   },
   {
@@ -59,17 +59,17 @@ const keyboarData = [
   },
   {
     id: "three",
-    value: "3",
+    value: 3,
     styling: "bg-gray-700 py-3 border border-black hover:border-gray-600",
   },
   {
     id: "two",
-    value: "2",
+    value: 2,
     styling: "bg-gray-700 py-3 border border-black hover:border-gray-600",
   },
   {
     id: "one",
-    value: "1",
+    value: 1,
     styling: "bg-gray-700 py-3 border border-black hover:border-gray-600",
   },
   {
@@ -79,7 +79,7 @@ const keyboarData = [
   },
   {
     id: "zero",
-    value: "0",
+    value: 0,
     styling:
       "col-span-2 bg-gray-700 py-3 border border-black hover:border-gray-600",
   },
@@ -90,10 +90,10 @@ const keyboarData = [
   },
 ];
 
-const Keyboard = () => (
+const Keyboard = (props) => (
   <div className="grid grid-cols-4 text-lg">
     {keyboarData.map((key) => (
-      <Key key={key.id} keyData={key} />
+      <Key key={key.id} keyData={key} handleInput={props.handleInput} />
     ))}
   </div>
 );
