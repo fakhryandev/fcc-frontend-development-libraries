@@ -36,21 +36,36 @@ function App() {
   const markdown = marked(text);
   return (
     <div className="App container-fluid">
-      <h1>Markdown Previewer</h1>
-      <div className="row justify-content-between py-3 vh-100">
+      <div className="py-3">
+        <h1>Markdown Previewer</h1>
+      </div>
+      <div className="row justify-content-around align-items-center py-3">
         <div className="col-5">
-          <textarea
-            className="form-control h-100"
-            id="editor"
-            onChange={(event) => setText(event.target.value)}
-            value={text}
-          ></textarea>
+          <div className="card">
+            <div className="card-header text-left">Editor</div>
+            <div className="card-body">
+              <textarea
+                className="form-control"
+                id="editor"
+                onChange={(event) => setText(event.target.value)}
+                value={text}
+                style={{ height: "70vh" }}
+              ></textarea>
+            </div>
+          </div>
         </div>
         <div className="col-5">
-          <div
-            id="preview h-100"
-            dangerouslySetInnerHTML={{ __html: markdown }}
-          ></div>
+          <div className="card">
+            <div className="card-header text-left">Preview</div>
+            <div className="card-body">
+              <div
+                id="preview"
+                className="form-control"
+                style={{ height: "70vh", overflowY: "auto" }}
+                dangerouslySetInnerHTML={{ __html: markdown }}
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
