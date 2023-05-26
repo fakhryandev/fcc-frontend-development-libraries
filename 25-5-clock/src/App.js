@@ -21,9 +21,9 @@ const App = () => {
     clearInterval(timerInterval);
     setTimerInterval(null);
 
-    // let beep = document.getElementById("beep");
-    // beep.pause();
-    // beep.currentTime = 0;
+    let beep = document.getElementById("beep");
+    beep.pause();
+    beep.currentTime = 0;
   };
 
   const increment = (timerType) => {
@@ -38,7 +38,9 @@ const App = () => {
           break;
         case "break":
           if (breakTime < 60) {
-            setBreakTime(breakTime + 1);
+            const newBreak = breakTime + 1;
+            setBreakTime(newBreak);
+            setTimer(newBreak * 60);
           }
           break;
         default:
@@ -59,7 +61,9 @@ const App = () => {
           break;
         case "break":
           if (breakTime > 1) {
-            setBreakTime(breakTime - 1);
+            const newBreak = breakTime - 1;
+            setBreakTime(newBreak);
+            setTimer(newBreak * 60);
           }
           break;
         default:
@@ -86,12 +90,15 @@ const App = () => {
   }, [timerOn]);
 
   useEffect(() => {
-    if (timer === 0) {
+    if (timer < 0) {
+      let beep = document.getElementById("beep");
+      beep.play();
+      beep.currentTime = 0;
       setBreakState(!breakState);
       const nextTimerLength = breakState ? breakTime : sessionTime;
       setTimer(nextTimerLength * 60);
     }
-  }, [timer]);
+  }, [timer, breakState, breakTime, sessionTime]);
 
   useEffect(() => {
     setTimer(sessionTime * 60);

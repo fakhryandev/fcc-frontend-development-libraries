@@ -16,10 +16,6 @@ const TimerDisplay = (props) => {
 
   let currTime = currMin.concat(":").concat(currSec);
 
-  // let beep = document.getElementById("beep");
-  // beep.pause();
-  // beep.currentTime = 0;
-
   return (
     <div className="flex flex-col justify-center items-center gap-3">
       <div className="border-8 border-cyan-900 rounded-3xl text-center py-8 px-16 w-[300px]">
